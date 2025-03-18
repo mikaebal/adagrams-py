@@ -31,32 +31,22 @@ LETTER_POOL = {
 
 
 def draw_letters():
-    # list of available letters
     letter_pool_list = []
 
-    # letter shows up according to its count 
     for letter in LETTER_POOL:
         count = LETTER_POOL[letter]
         for copy in range(count):
             letter_pool_list.append(letter)
 
-	#print(letter_pool_list)
-	
-    # randomly drawn letters 
     letter_bank = []
 
-    # loops until 10 letters
     while len(letter_bank) < 10:
         random_index = randint(0, len(letter_pool_list) - 1)
         drawn_letter = letter_pool_list[random_index]
-        # remove from pool list to not draw again
         letter_pool_list.remove(drawn_letter)
-        # then add it to bank to show user
         letter_bank.append(drawn_letter)
 
     return letter_bank
-
-#print(letter_bank)
 
 def uses_available_letters(word, letter_bank):
     pass
