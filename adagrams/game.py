@@ -29,6 +29,16 @@ LETTER_POOL = {
     'Z': 1
 }
 
+SCORE_CHART = {
+        'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'R': 1, 'S': 1, 'T': 1,
+        'D': 2, 'G': 2,
+        'B': 3, 'C': 3, 'M': 3, 'P': 3,
+        'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
+        'K': 5,
+        'J': 8, 'X': 8,
+        'Q': 10, 'Z': 10
+}
+
 
 def draw_letters():
     letter_pool_list = []
@@ -72,17 +82,8 @@ def uses_available_letters(word, letter_bank):
 
     return True
 
-def score_word(word):
 
-    score_chart = {
-        'A': 1, 'E': 1, 'I': 1, 'O': 1, 'U': 1, 'L': 1, 'N': 1, 'R': 1, 'S': 1, 'T': 1,
-        'D': 2, 'G': 2,
-        'B': 3, 'C': 3, 'M': 3, 'P': 3,
-        'F': 4, 'H': 4, 'V': 4, 'W': 4, 'Y': 4,
-        'K': 5,
-        'J': 8, 'X': 8,
-        'Q': 10, 'Z': 10
-    }
+def score_word(word):
 
     if word == "":
         return 0
@@ -91,8 +92,8 @@ def score_word(word):
 
     for letter in word:
         letter = letter.upper()
-        if letter in score_chart:
-            total_score += score_chart[letter]
+        if letter in SCORE_CHART:
+            total_score += SCORE_CHART[letter]
 
     if len(word) >= 7:
         total_score += 8
